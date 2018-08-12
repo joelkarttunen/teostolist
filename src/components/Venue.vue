@@ -1,60 +1,63 @@
 <template>
   <div class="container-fluid mt-4">
-    <h1 class="h1">{{venue.name}}</h1>
-    <venue-address :place="venue.place"></venue-address>
-    <h2>Tapahtumat</h2>
+    <div class="col-md-6 centered">
+      <h1>{{venue.name}}</h1>
+      <venue-address :place="venue.place"></venue-address>
+      <h2>Tapahtumat</h2>
 
-    <b-row>
-      <b-col>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nimi</th>
-              <th>Ajankohta</th>
-              <th>Lopetusaika</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="event in events" :key="event.id">
-              <td>
-                <b-nav-item :to="{ name: 'event', params: { eventId: event.id }}">{{ event.name || "Ei nimeä" }}</b-nav-item>
-              </td>
-              <td>
-                {{ event.startDate }}
-              </td>
-              <td>
-                {{ event.endDate }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </b-col>
-    </b-row>
+      <b-row>
+        <b-col>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nimi</th>
+                <th>Aloitusaika</th>
+                <th>Lopetusaika</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="event in events" :key="event.id">
+                <td>
+                  <b-nav-item :to="{ name: 'event', params: { eventId: event.id }}">{{ event.name || "Ei nimeä" }}</b-nav-item>
+                </td>
+                <td>
+                  {{ event.startDate }}
+                </td>
+                <td>
+                  {{ event.endDate }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </b-col>
+      </b-row>
 
-    <h2>Top kappaleet</h2>
-    <b-row>
-      <b-col>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nimi</th>
-              <th>Soittokerrat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="topWork in topWorks" :key="topWork.id">
-              <td>
-                <b-nav-item :to="{ name: 'song', params: { songId: topWork.work.id }}">{{ topWork.work.title || "Ei nimeä" }}</b-nav-item>
-              </td>
-              <td>
-                {{ topWork.count }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </b-col>
-    </b-row>
+      <h2>Top kappaleet</h2>
+      <b-row>
+        <b-col>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nimi</th>
+                <th>Soittokerrat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="topWork in topWorks" :key="topWork.id">
+                <td>
+                  <b-nav-item :to="{ name: 'song', params: { songId: topWork.work.id }}">{{ topWork.work.title || "Ei nimeä" }}</b-nav-item>
+                </td>
+                <td>
+                  {{ topWork.count }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </b-col>
+      </b-row>
+    </div>
   </div>
+    
 </template>
 
 <script>
@@ -121,5 +124,10 @@ li {
 
 a {
   color: #35495E;
+}
+
+.centered {
+    float: none;
+    margin: 0 auto;
 }
 </style>

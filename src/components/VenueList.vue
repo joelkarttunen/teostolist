@@ -1,33 +1,35 @@
 <template>
   <div class="container-fluid mt-4">
-    <h1 class="h1">Paikat</h1>
+    <div class="col-md-6 centered">
+      <h1 class="h1">Paikat</h1>
 
-    <b-row>
-      <b-form-input v-model="search"
-                  type="text"
-                  placeholder="Hae nimellä">
-                  </b-form-input>
-      <b-button v-on:click="searchVenue">Hae</b-button>
-    </b-row>
+      <b-row>
+        <b-form-input v-model="search"
+                    type="text"
+                    placeholder="Hae nimellä">
+                    </b-form-input>
+        <b-button v-on:click="searchVenue">Hae</b-button>
+      </b-row>
 
-    <b-row>
-      <b-col>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nimi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="venue in venues" :key="venue.id">
-              <td>
-                <b-nav-item :to="{ name: 'venue', params: { venueId: venue.id }}">{{ venue.name || "Ei nimeä" }}</b-nav-item>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </b-col>
-    </b-row>
+      <b-row>
+        <b-col>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nimi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="venue in venues" :key="venue.id">
+                <td>
+                  <b-nav-item :to="{ name: 'venue', params: { venueId: venue.id }}">{{ venue.name || "Ei nimeä" }}</b-nav-item>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -63,5 +65,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+.centered {
+    float: none;
+    margin: 0 auto;
+}
 </style>

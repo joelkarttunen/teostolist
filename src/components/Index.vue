@@ -1,12 +1,13 @@
 <template>
   <div>
-   <h1>TODO</h1>
+    <h1>Teostolist</h1>
+    <p> Listaa Teoston avoinen rajapinnan dataa vuodelta 2015. Esityspaikkoja, esityksiä, esiintyjiä, kappaleita (todo)</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'songList'
+  name: 'index'
 }
 </script>
 

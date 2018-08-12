@@ -1,13 +1,15 @@
 <template>
   <div class="container-fluid mt-4">
-    <h1>{{ event.name }}</h1>
-    <h2>{{ event.venue.name }}</h2>
-    
-    <p>Ajankohta {{ event.startDate }} - {{ event.endDate }}</p>
-    <p>Esiintyjiä {{ event.shows.count }} kpl </p>
+    <div class="col-md-6 centered">
+      <h1>{{ event.name }}</h1>
+      <h2>{{ event.venue.name }}</h2>
+      
+      <p>Ajankohta {{ event.startDate }} - {{ event.endDate }}</p>
+      <p>Esiintyjiä {{ event.shows.count }} kpl </p>
 
-    <div v-for="show in shows">
-      <show :id="show.id"></show>
+      <div v-for="show in shows">
+        <show :id="show.id"></show>
+      </div>
     </div>
   </div>
 </template>
@@ -47,3 +49,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.centered {
+    float: none;
+    margin: 0 auto;
+}
+</style>
